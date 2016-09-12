@@ -1,0 +1,49 @@
+/* Fix user-agent */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+input {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 14px;
+    position: relative;
+}
+
+#game_container {
+    display: inline-block;
+    margin: auto;
+    position: relative;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+}
+
+.game-bg {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.game-input{
+    
+}

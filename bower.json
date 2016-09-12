@@ -1,0 +1,24 @@
+{
+    "name": "walker",
+    "version": "0.0.1",
+    "authors": [
+        "liwenqiang <liwq@mizlicai.com>"
+    ],
+    "description": "walker bower components",
+    "keywords": [
+        "bigscript"
+    ],
+    "license": "MIT",
+    "homepage": "http://mizlicai.com",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "vendor",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "Modal": "git@gitlab.mizlicai.com:react-camp/Modal.git#pub/1.0.0"
+    }
+}
