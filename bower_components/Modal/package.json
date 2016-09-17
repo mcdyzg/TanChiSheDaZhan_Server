@@ -1,0 +1,30 @@
+{
+    "name": "react-modal",
+    "version": "0.0.1",
+    "description": "",
+    "repository": "",
+    "dependencies": {
+        "react-kit": "~0.1.14"
+    },
+    "devDependencies": {
+        "browser-sync": "^2.10.0",
+        "css-loader": "~0.9.1",
+        "del": "",
+        "gulp": "^3.9.0",
+        "gulp-uglify": "",
+        "gulp-watch": "^4.3.5",
+        "gulp-webpack": "~1.1.2",
+        "gulp-concat": "",
+        "gulp-cssimport": "^2.1.1",
+        "gulp-cssmin": "^0.1.7",
+        "jsx-loader": "~0.12.2",
+        "style-loader": "~0.8.3",
+        "url-loader": "~0.5.5",
+        "webpack": "~1.5.3"
+    },
+    "scripts": {
+        "build": ""
+    },
+    "author": "liwenqiang",
+    "license": "Apache 2"
+}

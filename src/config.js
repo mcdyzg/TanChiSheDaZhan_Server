@@ -1,3 +1,5 @@
+var path = require('path');
+
 /**
  * Author: liwenqiang
  * Date: 15-10-12 下午9:44
@@ -15,11 +17,11 @@ module.exports=function(root){
         //     database: 'youren'
         // },
         //系统目录
-        model:root+'/models/',
-        action:root+'/actions/',
-        view : root+'/views/',
-        game : root+'/games/',
-        logger_path: root+'/logs/error.log',
+        model:path.normalize(root+'/models/'),
+        action:path.normalize(root+'/actions/'),
+        view : path.normalize(root+'/views/'),
+        game : path.normalize(root+'/games/'),
+        logger_path: path.normalize(root+'/logs/error.log'),
         logger_level: 'debug',
         //cookie session
         maxAge: 259200000,

@@ -59,17 +59,17 @@ module.exports = function(app, fs) {
     }
 
     //***************注册Controller
-    fs.readdirSync(C.action).forEach(function(name) {
-        if (name.indexOf('.js') > -1) {
-            var ctrl = require(C.action + name);
-            name = name.replace('.js', '').toLowerCase();
-            _.forEach(ctrl, function(v, k) {
-                if (typeof v === 'function') {
-                    var route_name = action_pre_name + name + '/' + k;
-                    // console.log('===registe action ==>' + route_name);
-                    router.all(route_name, _construct(v, ctrl, name, k));
-                }
-            });
-        }
-    })
+    // fs.readdirSync(C.action).forEach(function(name) {
+    //     if (name.indexOf('.js') > -1) {
+    //         var ctrl = require(C.action + name);
+    //         name = name.replace('.js', '').toLowerCase();
+    //         _.forEach(ctrl, function(v, k) {
+    //             if (typeof v === 'function') {
+    //                 var route_name = action_pre_name + name + '/' + k;
+    //                 // console.log('===registe action ==>' + route_name);
+    //                 router.all(route_name, _construct(v, ctrl, name, k));
+    //             }
+    //         });
+    //     }
+    // })
 }

@@ -1,0 +1,12 @@
+{
+  "name": "Modal",
+  "_release": "pub/1.0.0",
+  "_resolution": {
+    "type": "tag",
+    "tag": "pub/1.0.0",
+    "commit": "d15ef389194590431e3a0213b5973dc6e79e3575"
+  },
+  "_source": "git@gitlab.mizlicai.com:react-camp/Modal.git",
+  "_target": "pub/1.0.0",
+  "_originalSource": "git@gitlab.mizlicai.com:react-camp/Modal.git"
+}

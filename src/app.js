@@ -99,7 +99,7 @@ module.exports = function(root, apppath) {
     require(apppath + '/socketio')(app);
 
     //model 初始化
-    require(apppath + '/model')(app, fs);
+    // require(apppath + '/model')(app, fs);
 
 
     //密钥
