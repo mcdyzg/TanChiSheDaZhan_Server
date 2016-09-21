@@ -19,6 +19,7 @@ module.exports = function(app, fs){
         return models[name]
     }
 
+    这段的作用是把model文件夹下的model文件转化成new Schema的形式，插入到app.js中。
     fs.readdirSync(C.model).forEach(function (name) {
         var modelExt = '.js'
         if(name.indexOf(modelExt)>-1) {

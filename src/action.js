@@ -19,6 +19,7 @@ module.exports = function(app, fs) {
      * @returns {*}
      * 增加其他全局 增加 执行数组 队列执行 ctrl.access [fn,fn] 根据由左到右执行
      */
+    // 这个函数作用是把action里抽出的多个action文件，再转换成router('/**',function(){})的形式
     var _construct = function(fn, ctrl, controllerName, actionName) {
         var load_func = []
 

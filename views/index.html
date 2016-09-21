@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <meta charset="utf-8">
-    <title>斗兽棋</title>
+    <title>贪吃蛇大作战</title>
     <!--http://www.html5rocks.com/en/mobile/mobifying/-->
     <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1, minimum-scale=1,maximum-scale=1,target-densitydpi=device-dpi" />
     <!--https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html-->
@@ -22,35 +23,33 @@
     <meta name="360-fullscreen" content="true" />
     <!-- force screen orientation on some browser -->
     <!-- portrait - 竖屏 landscape - 横屏 -->
-    <meta name="screen-orientation" content="primary" />
-    <meta name="x5-orientation" content="primary">
+    <meta name="screen-orientation" content="landscape" />
+    <meta name="x5-orientation" content="landscape">
     <meta name="browsermode" content="application">
     <meta name="x5-page-mode" content="app">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" type="text/css" href="//static.nightwatch.xin/lib/css/nw-base.css">
-    <link rel="stylesheet" type="text/css" href="/css/app.min.css">
+    <style type="text/css">
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="game-bg flex-h jc-center ai-center">
-        <div class="flex-v">
-            <div>
-                <input id="nicheng" class="game-input" placeholder="来个帅气的昵称吧" />
-            </div>
-            <div>
-                <input id="phone" class="game-input" placeholder="输入手机方便领取礼物哦" />
-            </div>
-            <div>
-                <div id="start_game" class="">开始</div>
-            </div>
-        </div>
-    </div>
-    <div id="game_container"></div>
-    <script src="//static.nightwatch.xin/lib/jquery/jquery-2.2.3.min.js"></script>
-    <script src="//static.nightwatch.xin/lib/phaser/phaser.min.js"></script>
+<!--     <script src="//static.nightwatch.xin/lib/phaser/phaser.min.js"></script>
     <script src="//static.nightwatch.xin/lib/phaser/soket.io-1.4.5.min.js"></script>
-    <script src="/js/socket-client.js"></script>
-    <!-- <script src="/js/game.js"></script> -->
+    <script src="//static.nightwatch.xin/lib/jquery/jquery-2.2.3.min.js"></script>
+    <script src="//static.nightwatch.xin/lib/phaser/phaser-virtual-joystick.min.js"></script> -->
+<!--     <script src="//cdn.bootcss.com/jquery/2.2.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/phaser/2.6.1/phaser.min.js"></script>
+    <script src="//cdn.bootcss.com/socket.io/1.4.5/socket.io.min.js"></script> -->
+    <!-- <script src="/js/socket-client.js"></script> -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/phaser.min.js"></script>
+    <script src="/js/socket.io.min.js"></script>
+    <script src="/js/phaser-virtual-joystick.min.js"></script>
+    <script src="/js/app.js"></script>
 </body>
 
 </html>
+

@@ -25,6 +25,7 @@ module.exports = function(root, apppath) {
     //C-配置文件 F-内置函数 D-数据库类
 
     //================主模块=========================
+    // 直接引入koa.io，集成了socket模块，就不需要将server绑定到socket模块了，直接app.io.use()相当于写socket.on('')
     var koa = require('koa.io'),
         staticCache = require('koa-static-cache'),
         //static = require('koa-static'),
@@ -81,6 +82,7 @@ module.exports = function(root, apppath) {
     /*app.use(staticCache(path.join(root, 'static'), {
         maxAge: 365 * 24 * 60 * 60
     }))*/
+    // 设置静态资源文件夹
     var static_root = path.join(root, 'static');
     app.use(staticCache(static_root, {
         maxAge: 860000000,
