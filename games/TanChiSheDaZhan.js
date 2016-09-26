@@ -121,7 +121,7 @@ module.exports =
             nicheng:'',
             userKey:'',
             isDead:false,
-            putboom:false
+            putboom:'false'
         },
         "2":{
             rota:1,
@@ -135,7 +135,7 @@ module.exports =
             nicheng:'',
             userKey:'',
             isDead:false,
-            putboom:false
+            putboom:'false'
         }
     },
     // 游戏名称

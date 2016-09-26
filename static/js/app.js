@@ -228,11 +228,26 @@
 
 	                        // 监听远程数据
 	                        socket.on('synced info ' + roomUuid, function(dt){
+
 	                            if(_GameInfo[userKey].isDead === true) {
 	                                return;
 	                            }else {
-	                                _GameInfo[dt.user][dt.action] = dt.data;
+	                                if(dt.action !== 'position') {
+	                                    _GameInfo[dt.user][dt.action] = dt.data;
+	                                }else {
+	                                    _GameInfo[dt.user]['ix'] = dt.data.ix;
+	                                    _GameInfo[dt.user]['iy'] = dt.data.iy;
+	                                }
 	                                
+	                                // var temDt = dt.data.split('/');
+	                                // // console.log(temDt)
+	                                // if(temDt[1] !== 'position') {
+	                                //     _GameInfo[temDt[0]][temDt[1]] = temDt[2];
+	                                // }else {
+	                                //     _GameInfo[temDt[0]]['ix'] = temDt[2];
+	                                //     _GameInfo[temDt[0]]['iy'] = temDt[3];
+	                                // }
+
 	                                // if(dt.action === 'rota' && _GameInfo[userKey].isDead === false) {
 	                                //     enemy[dt.user].move();
 	                                // }
@@ -454,14 +469,14 @@
 	            _GameInfo[userKey].rota = stick.rotation;
 
 	            // 向服务器同步信息
-	            socket.emit('sync info ' + roomUuid, {
-	                user:userKey,
-	                action:'rota',
-	                data:_GameInfo[userKey].rota
-	            });
+	            // socket.emit('sync info ' + roomUuid, JSON.stringify({
+	            //     user:userKey,
+	            //     action:'rota',
+	            //     data:_GameInfo[userKey].rota
+	            // }));
 
 	            // 小蛇移动
-	            enemy[userKey].move();
+	            // enemy[userKey].move();
 
 	        }
 	    }
@@ -476,8 +491,12 @@
 	                data:true
 	            });
 
+	            // socket.emit('sync info ' + roomUuid, {
+	            //     data: userKey + '/' + 'putboom' + '/' + 'true'
+	            // });
+
 	            // 本地同步信息
-	            _GameInfo[userKey].putboom = true;
+	            _GameInfo[userKey].putboom = 'true';
 	        }
 	    }
 
@@ -490,9 +509,13 @@
 	                action:'putboom',
 	                data:false
 	            });
+	            
+	            // socket.emit('sync info ' + roomUuid, {
+	            //     data:userKey + '/' + 'putboom' + '/' + 'false'
+	            // });
 
 	            // 同步本地信息
-	            _GameInfo[userKey].putboom = false;
+	            _GameInfo[userKey].putboom = 'false';
 	        }
 	    }
 
@@ -792,8 +815,31 @@
 	Snake.prototype.update = function() {
 	    var t = this;
 
-	    // 根据朝向更新小蛇移动
-	    this.move();
+	    // 根据朝向更新小蛇移动,并且把位置信息同步给服务器
+	    if(this.name === userKey) {
+	        this.move();
+	        // console.log(t.x)
+	        // console.log(t.y)
+	        // 向服务器同步信息
+	        socket.emit('sync info ' + roomUuid, {
+	                    user:userKey,
+	                    action:'position',
+	                    data:{
+	                        ix:t.x - halfW,
+	                        iy:t.y - halfH
+	                    }
+	                });
+
+	        // socket.emit('sync info ' + roomUuid,  {
+	        //     data:userKey + '/' + 'position' + '/' + (t.x-halfW) + '/' + (t.y-halfH)
+	        // });
+	    }else {
+	        // console.log(+(+(_GameInfo[this.name].ix) + halfW))
+	        this.game.physics.arcade.moveToXY(t, +(+(_GameInfo[this.name].ix) + halfW), +(+(_GameInfo[this.name].iy) + halfH), 120);
+	        // t.x = _GameInfo[this.name].ix + halfW;
+	        // t.y = _GameInfo[this.name].iy + halfH;
+	    }
+
 
 	    // 更新小蛇的身体位置
 	    var part = t.childPath.pop();
@@ -806,7 +852,7 @@
 	    }
 
 	    //监听是否放炸弹 
-	    if(_GameInfo[this.name].putboom === true) {
+	    if(_GameInfo[this.name].putboom === 'true') {
 	        this.putBoom();
 	        // console.log('dddd')
 	    } else {
